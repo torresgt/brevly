@@ -1,4 +1,11 @@
+# Settings
 .vscode
+
+# Dependency
 node_modules
+
+# Build
+build 
+
+# Ambientes
 .env*
-build
