@@ -5,7 +5,14 @@ import {
 	serializerCompiler,
 	validatorCompiler,
 } from "fastify-type-provider-zod";
-import { createLinkRoute } from "./routes/create-link";
+import { env } from "@/env";
+import {
+	createLinkRoute,
+	deleteLinkRoute,
+	exportLinksRoute,
+	getLinksRoute,
+	redirectLinkRoute,
+} from "./routes";
 
 const server = fastify();
 
@@ -28,8 +35,14 @@ server.setErrorHandler((error, _req, reply) => {
 
 server.register(fastifyCors, { origin: "*" });
 
+// ROUTES
 server.register(createLinkRoute);
+server.register(getLinksRoute);
+server.register(deleteLinkRoute);
+server.register(exportLinksRoute);
 
-server.listen({ port: 3333, host: "0.0.0.0" }).then(() => {
+server.register(redirectLinkRoute);
+
+server.listen({ port: env.PORT, host: "0.0.0.0" }).then(() => {
 	console.log("HTTP server running!");
 });
