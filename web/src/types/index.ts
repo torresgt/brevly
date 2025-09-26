@@ -3,10 +3,14 @@ export interface AllLinksResponse {
 	links: Links[];
 }
 
-interface Links {
+export interface Links {
 	id: string;
 	url: string;
 	shortener: string;
-	accescCount: number;
+	accessCount: number;
 	createdAt: Date;
+}
+
+export interface ExportLinksResponse {
+	exportUrl: string;
 }
