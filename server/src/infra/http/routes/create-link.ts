@@ -13,7 +13,7 @@ export const createLinkRoute: FastifyPluginAsyncZod = async (server) => {
 				body: z.object({
 					url: z.url({ message: "Please, provide a valid URL" }),
 					shortener: z
-						.url({ message: "URL invalid" })
+						.string()
 						.regex(/^[a-z0-9_-]+$/, { message: "URL shortener is malformed." })
 						.min(3, {
 							message: "The shortener must have at least 3 characters",

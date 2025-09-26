@@ -55,6 +55,7 @@ export async function exportLinks(): Promise<
 				Bucket: env.CLOUDFLARE_BUCKET,
 				Key: fileName,
 				Body: csvStringBOM,
+				ContentDisposition: `attachment; filename="${fileName}"`,
 				ContentType: "text/csv;charset=utf-8",
 			}),
 		);
