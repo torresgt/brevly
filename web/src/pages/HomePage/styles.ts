@@ -1,3 +1,4 @@
+import { CheckCircleOutlined } from "@ant-design/icons";
 import { Image, Layout } from "antd";
 import { rem } from "polished";
 import styled from "styled-components";
@@ -61,4 +62,22 @@ export const CardsWrapper = styled.div`
     gap: 24px;
     max-width: ${rem(440)};
   }
+`;
+
+export const ToastContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${rem(4)};
+`;
+
+export const CircleOutlined = styled(CheckCircleOutlined)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #fff;
+  width: ${rem(14)};
+  height: ${rem(14)};
+  border-radius: 99%;
+  background-color: #80c343;
 `;
