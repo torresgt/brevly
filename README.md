@@ -73,7 +73,6 @@ Você precisa ter as seguintes ferramentas instaladas na sua máquina:
 
     ```bash
     git clone https://github.com/torresgt/brevly.git
-    cd brevly
     ```
 
 2.  **Configure o Backend:**
