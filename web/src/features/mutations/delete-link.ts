@@ -6,7 +6,7 @@ export const useDeleteLinkMutation = () => {
 	const queryClient = useQueryClient();
 
 	return useMutation({
-		mutationFn: async (linkId: string) => api.delete(`urls/${linkId}`),
+		mutationFn: async (linkId: string) => api.delete(`/urls/${linkId}`),
 		onSettled: () =>
 			queryClient.invalidateQueries({ queryKey: linksQueries.all() }),
 	});
