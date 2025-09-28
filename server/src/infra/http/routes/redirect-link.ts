@@ -5,7 +5,7 @@ import { isLeft } from "@/shared/either";
 
 export const redirectLinkRoute: FastifyPluginAsyncZod = async (server) => {
 	server.get(
-		"/:shortener",
+		"/urls/:shortener",
 		{
 			schema: {
 				summary: "Redirect to original URL",
@@ -14,7 +14,7 @@ export const redirectLinkRoute: FastifyPluginAsyncZod = async (server) => {
 					shortener: z.string().min(3),
 				}),
 				response: {
-					301: z.undefined(),
+					200: z.object({ originalUrl: z.url() }),
 					404: z.object({ message: z.string() }),
 				},
 			},
@@ -30,7 +30,7 @@ export const redirectLinkRoute: FastifyPluginAsyncZod = async (server) => {
 			}
 
 			const { originalUrl } = result.right;
-			return reply.status(301).header("location", originalUrl).send();
+			return reply.status(200).send({ originalUrl });
 		},
 	);
 };

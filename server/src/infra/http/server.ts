@@ -33,7 +33,10 @@ server.setErrorHandler((error, _req, reply) => {
 	return reply.status(500).send({ message: "Internal server error" });
 });
 
-server.register(fastifyCors, { origin: "*" });
+server.register(fastifyCors, {
+	origin: "*",
+	methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+});
 
 // ROUTES
 server.register(createLinkRoute);
