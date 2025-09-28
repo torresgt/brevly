@@ -72,7 +72,7 @@ Você precisa ter as seguintes ferramentas instaladas na sua máquina:
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/torresgt/brevly.git](https://github.com/torresgt/brevly.git)
+    git clone https://github.com/torresgt/brevly.git
     cd brevly
     ```
 
