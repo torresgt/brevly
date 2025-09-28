@@ -6,8 +6,8 @@ import styled from "styled-components";
 export const CardContainer = styled(Card)`
   display: flex;
   flex-direction: column;
-  min-width: ${rem(570)};
-  min-height: ${rem(214)};
+  min-width: ${rem(580)};
+  min-height: ${rem(234)};
   flex-grow: 1;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
@@ -53,6 +53,11 @@ export const DownloadButton = styled(Button)`
     border-color: #c0c0c0 !important;
     color: ${({ theme }) => theme.colors.text} !important;
   }
+  &:disabled:hover {
+    background-color: #f5f5f5 !important;
+    color: rgba(0, 0, 0, 0.25) !important;
+    border-color: #d9d9d9 !important;
+  }
 `;
 
 export const StyledDivider = styled(Divider)`
@@ -60,12 +65,19 @@ export const StyledDivider = styled(Divider)`
 `;
 
 export const EmptyStateContainer = styled.div`
-  flex-grow: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: ${rem(16)};
+`;
+
+export const LinkListingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: ${rem(450)};
+  overflow-y: auto;
+  padding-right: ${rem(16)};
 `;
 
 export const EmptyStateIcon = styled(LinkOutlined)`
