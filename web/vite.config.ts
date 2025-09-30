@@ -1,10 +1,13 @@
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import viteTsConfigPaths from "vite-tsconfig-paths";
+import path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig(() => {
 	const config = {
+		server: { port: 3000, fs: { deny: [".env", ".env.*"] } },
+		plugins: [react(), viteTsConfigPaths()],
 		build: {
 			outDir: "build",
 			sourcemap: true,
@@ -20,9 +23,8 @@ export default defineConfig(() => {
 				},
 			},
 		},
-		server: { port: 3000, fs: { deny: [".env", ".env.*"] } },
-		plugins: [react(), viteTsConfigPaths()],
 		resolve: {
+			alias: {'@': path.resolve(__dirname, './src')},
 			dedupe: ["react", "react-dom"],
 		},
 	};

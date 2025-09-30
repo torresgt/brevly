@@ -4,20 +4,21 @@ services:
     ports:
       - '5432:5432'
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=docker
-      - POSTGRES_DB=shortener
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=shortener
     volumes:
       - postgres_data:/bitnami/postgresql
       - './docker:/docker-entrypoint-initdb.d'
+  
   api:
-    build: . 
+    build: .
     ports:
       - '3333:3333'
     env_file:
-      - .env 
+      - .env
     depends_on:
       - pg
-      
+
 volumes:
   postgres_data:
