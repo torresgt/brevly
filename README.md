@@ -77,18 +77,26 @@ Você precisa ter as seguintes ferramentas instaladas na sua máquina:
 
 2.  **Configure o Backend:**
 
-    - Navegue até a pasta do servidor:
+    - Navegue até a pasta do servidor e instale as dependências:
+
       ```bash
       cd server
       ```
-    - Crie uma cópia do arquivo de exemplo `.env.example` (se houver um) ou crie um novo arquivo chamado `.env` e preencha com as suas variáveis, seguindo o modelo abaixo. A `DATABASE_URL` já está configurada para o ambiente Docker Compose.
+
+      ```bash
+      npm install
+      ```
+
+      O processo de instalação irá criar o arquivo `.env` automaticamente, a partir do template `.env.example`.
+
+    - Preencha as variáveis de ambiente. Abra `.env` que foi gerado e adicione suas credenciais do CLoudflare R2 nos campos inidicados. As outras variáveis já vêm pré-configuradas para o ambiente Docker.
 
       ```env
       # server/.env
       PORT=3333
       NODE_ENV=development
 
-      # Database (para Docker Compose)
+      # Database (configuração padrão para Docker Compose)
       DATABASE_URL="postgresql://docker:docker@pg:5432/shortener"
 
       # Cloudflare R2
